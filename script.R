@@ -3,7 +3,7 @@ stadium <- data.frame(
              "Burnley", "Chelsea", "Crystal Palace", "Everton", "Leicester City", 
              "Liverpool", "Manchester City", "Manchester United", "Newcastle United", 
              "Norwich City", "Sheffield United", "Southampton", "Tottenham Hotspur", 
-             "Watford", "West Ham Umited", "Wolverhampton Wanderers"),
+             "Watford", "West Ham United", "Wolverhampton Wanderers"),
     Name = c("Emirates Stadium", "Villa Park", "Dean Court", "Falmer Stadium", 
              "Turf Moor", "Stamford Bridge", "Selhurst Park", "Goodison Park", 
              "King Power Stadium", "Anfield", "City of Manchester Stadium", 

@@ -34,7 +34,7 @@ stadium <- data.frame(
              "Burnley", "Chelsea", "Crystal Palace", "Everton", "Leicester City", 
              "Liverpool", "Manchester City", "Manchester United", "Newcastle United", 
              "Norwich City", "Sheffield United", "Southampton", "Tottenham Hotspur", 
-             "Watford", "West Ham Umited", "Wolverhampton Wanderers"),
+             "Watford", "West Ham United", "Wolverhampton Wanderers"),
     Name = c("Emirates Stadium", "Villa Park", "Dean Court", "Falmer Stadium", 
              "Turf Moor", "Stamford Bridge", "Selhurst Park", "Goodison Park", 
              "King Power Stadium", "Anfield", "City of Manchester Stadium", 
@@ -52,9 +52,10 @@ stadium <- data.frame(
     Capacity = c(60704, 42095, 11364, 30750, 21944, 40834, 25486, 39414, 32361, 
                  53394, 55017, 75643, 52305, 27359, 32125, 32384, 62214, 22200, 
                  60000, 32050),
-    Position = c(8, 17, 18, 15, 10, 4, 14, 12, 5, 1, 2, 3, 13, 20, 9, 11, 6, 19, 
-                 16, 7),
-    Color = c("orange", "grey", "red", "grey", "grey", "green", "grey", "grey", "orange", "blue", "green", "green", "grey", "red", "grey", "grey", "orange", "red", "grey", "grey")
+    Position = c(8, 17, 18, 15, 10, 4, 14, 12, 5, 1, 2, 3, 13, 20, 9, 11, 6, 19, 16, 7),
+    Color = c("orange", "grey", "red", "grey", "grey", "green", "grey", "grey",
+              "orange", "blue", "green", "green", "grey", "red", "grey", "grey",
+              "orange", "red", "grey", "grey")
 )
 
 # add the status of each team for the 2020/21 season
@@ -84,9 +85,16 @@ stadium %>%
     leaflet() %>% 
     addTiles() %>% 
     # add markers
-    addCircleMarkers(fillColor = stadium$Color, color = stadium$Color, opacity = 0.8, weight = 3, radius = stadium$Capacity/2500, fillOpacity = 0.4, popup = paste(stadium$Club,":", " ", stadium$Name, br(), "Capacity:", " ", stadium$Capacity, sep = ""), clusterOptions = markerClusterOptions()) %>%
+    addCircleMarkers(fillColor = stadium$Color, color = stadium$Color, 
+                     opacity = 0.8, weight = 3, radius = stadium$Capacity/2500,
+                     fillOpacity = 0.4, clusterOptions = markerClusterOptions(),
+                     popup = paste(stadium$Club, ":", " ", stadium$Name, br(),
+                                   "Capacity:", " ", stadium$Capacity, sep = "")) %>%
     # add legends
-    addLegend(labels = c("PL Champion and Champions League 2020/21", "Champions League 2020/21", "Europa League 2020/21", "Relegated"), colors = c("blue", "green", "orange", "red"), position = "topright")
+    addLegend(labels = c("PL Champion and Champions League 2020/21", 
+                         "Champions League 2020/21", "Europa League 2020/21",
+                         "Relegated"), 
+              colors = c("blue", "green", "orange", "red"), position = "topright")
 ```
 
 If clicked on each of the marker, some information will be shown. This includes the names of the club and the stadium and the stadium capacity.  
